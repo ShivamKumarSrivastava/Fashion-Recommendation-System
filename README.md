@@ -6,6 +6,8 @@ This project is an end-to-end **Fashion Product Recommendation System** built us
 
 The project follows a complete Data Science workflow including data preprocessing, exploratory data analysis (EDA), model building, evaluation, and deployment using Streamlit.
 
+**Link :** https://fashion-recommendation-system-49bgsyml8p2obfpvwcgcou.streamlit.app/
+
 ---
 
 ## 🚀 Features
