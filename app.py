@@ -25,13 +25,13 @@ def load_articles():
 
 @st.cache_data
 def load_similarity():
-    with open("models/similarity.pkl", "rb") as f:
-        similarity_df = pickle.load(f)
-    return similarity_df
+    with open("models/top_similar.pkl", "rb") as f:
+        top_similar = pickle.load(f)
+    return top_similar
 
 
 articles = load_articles()
-similarity_df = load_similarity()
+top_similar = load_similarity()
 
 # ----------------------------------
 # Recommendation Function
@@ -39,18 +39,10 @@ similarity_df = load_similarity()
 
 def recommend_products(article_id, top_n=5):
 
-    if article_id not in similarity_df.columns:
+    if article_id not in top_similar:
         return []
 
-    recommendations = (
-        similarity_df[article_id]
-        .sort_values(ascending=False)
-        .iloc[1:top_n + 1]
-        .index
-        .tolist()
-    )
-
-    return recommendations
+    return top_similar[article_id][:top_n]
 
 
 # ----------------------------------
